@@ -8,6 +8,11 @@ Retro Video-Games.
   
   
   
+  PD: NO SUBAN actualizaciones del archivo HTML, eso lo miramos luego cuando creemos un menú principal.
+  
+  
+  
+  
   
   Si usan el que puse solo cambien la ruta: "<script src="pacman/pacman.js"></script> y lo ponen así de esta manera:                                                                                                                                                                            
   <script src="carpeta/nombre-archivo"></script>
