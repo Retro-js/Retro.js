@@ -15,6 +15,20 @@ Retro Video-Games.
 
 
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 Pueden encontrar una miniguía de la librería aquí: http://programacion.net/articulo/introduccion_a_la_libreria_p5_js_1413
 
 
