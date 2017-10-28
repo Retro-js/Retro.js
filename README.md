@@ -26,8 +26,8 @@ Retro Video-Games.
 | Nombre | Github nickname |
 |--------|-----------------|
 | Laura Ximena Gordillo | lgordillom |
-| Jose Francisco Lugo | ? |
-| Maria Valentina Molina | ? |
+| Jose Francisco Lugo | solotov24 |
+| Maria Valentina Molina | mariavmflorez |
 | Santiago Velandia Casas | svelandiac |
 | Cristian Fernando Santos | santosfernando99 |
 
