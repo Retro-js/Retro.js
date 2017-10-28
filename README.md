@@ -1,2 +1,2 @@
-# Proyecto
+# Retro.js
 Retro Video-Games.
