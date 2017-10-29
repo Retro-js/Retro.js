@@ -43,7 +43,7 @@ Este proyecto no se hace con el fin de resolver una problemática en sí, la pla
 
 ## Antecedentes
 
-<Aplicaciones similares, url's de los repos>
+VideoJuegos de las primeras consolas producidas en el mercado llegando a ser los más populares de su época. Se pretende una remasterización de estos usando JavaScript como lenguaje de programación.
 
 # Objetivos
 
