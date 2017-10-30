@@ -26,7 +26,7 @@ Retro Video-Games.
 | Nombre | Github nickname |
 |--------|-----------------|
 | Laura Ximena Gordillo | lgordillom |
-| Jose Francisco Lugo | solotov24 |
+| Jose Francisco Lugo | solotov25 |
 | Maria Valentina Molina | mariavmflorez |
 | Santiago Velandia Casas | svelandiac |
 | Cristian Fernando Santos | santosfernando99 |
@@ -35,7 +35,8 @@ Retro Video-Games.
 
 ## Problemática
 
-Usar el paradidgma de la programacion orientada a objetos enfocado en la solucion de distintos juegos arcade uniendolos en una plataforma de facil acceso al usuario.
+Con este proyecto se pretende crear una plataforma de los juegos más reconocidos del tipo arcade, para que los usuarios que antes solo tenían los juegos en su respectiva consola ahora puedan volver a disfrutarlos, pero desde sus computadores.
+
 
 ## Marco teórico
 
