@@ -35,7 +35,7 @@ Retro Video-Games.
 
 ## Problemática
 
-Con este proyecto se pretende crear una plataforma de los juegos más reconocidos del tipo arcade, para que los usuarios de este tipo de juegos puedan volver a disfrutarlos desde sus computadores.
+Con este proyecto se pretende crear una plataforma de los juegos más reconocidos del tipo arcade, para que los usuarios que antes solo tenían los juegos en su respectiva consola ahora puedan volver a disfrutarlos, pero desde sus computadores.
 
 ## Marco teórico
 
