@@ -1,0 +1,10 @@
+body{
+	background-color: black;
+}
+.title{
+	text-align: center;
+	font: 2em "Open Sans", sans-serif;
+	padding-top: 20px;
+	padding-bottom: 20px;
+	color: white;
+}

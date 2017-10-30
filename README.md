@@ -1,25 +1,4 @@
 # Retro.js
-Retro Video-Games.
-  
-  
-  
-  
-  Cada uno cree su propia carpeta con su juego respectivo, y trabaje desde allí, recuerden usar el main.html que puse o si crean el suyo     usen la librería p5.js.
-  
-  
-  
-  PD: NO SUBAN actualizaciones del archivo HTML, eso lo miramos luego cuando creemos un menú principal.
-  
-  
-  
-  
-  
-  Si usan el que puse solo cambien la ruta: "<script src="pacman/pacman.js"></script> y lo ponen así de esta manera:                                                                                                                                                                            
-  <script src="carpeta/nombre-archivo"></script>
-
-  <Completar el readme empleando [markdown](https://guides.github.com/features/mastering-markdown/), de acuerdo a la información de cada proyecto. Modifique el archivo de licencia, de ser necesario. Elimine las instrucciones (texto que aparece entre "<" y ">")>
-
-# Retro.js
 
 # Integrantes
 
