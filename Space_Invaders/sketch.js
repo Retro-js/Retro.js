@@ -1,34 +1,31 @@
-var bug;  // Declare object
+var nave;
+var mons = [];
 
 function setup() {
-  createCanvas(windowWidth, windowHeight);
-  // Create object
-  bug = new Jitter();
+  var altura = 600;
+  var ancho = 800;
+  createCanvas(ancho, altura);
+  nave = new Personaje();
+  for(var i = 0; i < 8; i++){
+    mons[i] = new Enemigos(100*i,100);
+  }
 }
 
 function draw() {
-  background(50, 89, 100);
-  bug.move();
-  bug.display();
-}
-
-function windowResized() {
-  resizeCanvas(windowWidth, windowHeight);
-}
-
-// Jitter class
-function Jitter() {
-  this.x = random(width);
-  this.y = random(height);
-  this.diameter = random(10, 30);
-  this.speed = 1;
-
-  this.move = function() {
-    this.x += random(-this.speed, this.speed);
-    this.y += random(-this.speed, this.speed);
-  };
-
-  this.display = function() {
-    ellipse(this.x, this.y, this.diameter, this.diameter);
+  background(0);
+  nave.mostrar();
+  for(var i = 0; i < mons.length; i++){
+    mons[i].mostrar();
+    mons[i].move();
   }
-};
+}
+
+
+  function keyPressed(){
+      if(keyCode === RIGHT_ARROW){
+          nave.move(5);
+      }
+      else if (keyCode === LEFT_ARROW){
+          nave.move(-5);
+      }
+    }

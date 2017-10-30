@@ -35,7 +35,7 @@ Retro Video-Games.
 
 ## Problemática
 
-Este proyecto no se hace con el fin de resolver una problemática en sí, la plataforma terminada tiene como único objetivo entretener al usuario.
+Con este proyecto se pretende crear una plataforma de los juegos más reconocidos del tipo arcade, para que los usuarios de este tipo de juegos puedan volver a disfrutarlos desde sus computadores.
 
 ## Marco teórico
 
