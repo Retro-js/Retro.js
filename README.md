@@ -37,13 +37,14 @@ Retro Video-Games.
 
 Con este proyecto se pretende crear una plataforma de los juegos más reconocidos del tipo arcade, para que los usuarios que antes solo tenían los juegos en su respectiva consola ahora puedan volver a disfrutarlos, pero desde sus computadores.
 
+
 ## Marco teórico
 
 <Sustento teórico del proyecto. Referencias: artículos, sitios web>
 
 ## Antecedentes
 
-VideoJuegos de las primeras consolas producidas en el mercado llegando a ser los más populares de su época. Se pretende una remasterización de estos usando JavaScript como lenguaje de programación.
+los videoJuegos de las primeras consolas producidas en el mercado que llegaron  a ser de los más populares en su época. 
 
 # Objetivos
 
@@ -53,9 +54,9 @@ Crear una plataforma en la que fácilmente se encuentren y jueguen algunos de lo
 
 ## Específicos
 
-1. Entender el funcionamiendo y la lógica básica del front-end de una página web como también de videojuegos.
-1. Realizar diversos juegos con aspecto retro usando conceptos propios de programación orientada a objetos y programación estructurada.
-1.
+1. Entender el funcionamiendo y la lógica básica del front-end de una página web como también de los videojuegos.
+2. Realizar diversos juegos con aspecto retro usando conceptos propios de programación orientada a objetos y programación estructurada.
+3. Reforzar los conocimientos adquiridos durante el semestre en programacion orientada a objetos.
 
 # Requisitos
 
