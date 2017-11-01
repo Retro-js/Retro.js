@@ -15,11 +15,11 @@ class Button{
 			this.colors[i] = new Array( 3 );
 		}
 		//red 			   isMouseOn  !isMouseOn border
-		this.colors[0] = [ '#ff0000', '#ff1a1a', '#b30000'];
+		this.colors[0] = [ '#ff0000', '#ff4d4d', '#b30000'];
 		//green
-		this.colors[1] = [ '#00ff00', '#1aff1a', '#00b300'];
+		this.colors[1] = [ '#00ff00', '#4dff4d', '#00b300'];
 		//blue
-		this.colors[2] = [ '#0000ff', '#1a1aff', '#0000b3'];
+		this.colors[2] = [ '#0000ff', '#4d4dff', '#0000b3'];
 
 		this.color = this.colors[ this.type ];
 	}
@@ -43,7 +43,7 @@ class Button{
 		fill( this.color[2] );
 		if ( this.isMouseOn ){
 			rect( this.x, this.y + ( this.h )/2, this.w, 11 );
-			rect( this.x -7 + ( this.w )/2, this.y, 11, this.h );
+			rect( this.x -5 + ( this.w )/2, this.y, 11, this.h );
 		}
 		else{
 			rect( this.x, this.y + ( this.h )/2, this.w, 10 );

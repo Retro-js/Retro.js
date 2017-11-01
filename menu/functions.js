@@ -1,6 +1,6 @@
 function mousePressed() {
-	for( let button in buttons ){
-		if ( button.isMouseOn )
-			window.location = button.url;
+	for( let i=0; i<3; i++ ){
+		if ( buttons[i].isMouseOn )
+			window.location = buttons[i].url;
 	}
 }
