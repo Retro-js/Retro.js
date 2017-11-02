@@ -1,7 +1,10 @@
 class Button{
-	constructor( _content, _y, _t, _url ){
+	constructor( _content, _y, _t, _url, _x ){
 		this.content = _content;
-		this.x = window.innerWidth/2;
+		if( _x === "undefined" )
+			this.x = window.innerWidth/2;
+		else 
+			this.x = _x;
 		this.y = _y;
 		this.text_size = 40;
 		this.w = (this.content.length)*this.text_size + 100;
@@ -25,7 +28,7 @@ class Button{
 	}
 
 	draw(){
-		this.isMouseOn = mouseX > (this.x - this.w/2) && mouseX < (this.x + this.w/2) && 
+		this.isMouseOn = mouseX > (this.x - this.w/2) && mouseX < (this.x + this.w/2) &&
 		                 mouseY > (this.y - this.h/2) && mouseY < (this.y + this.h/2);
 		push();
 		noStroke();
@@ -38,7 +41,7 @@ class Button{
 		fill( 'white' );
 		textAlign( CENTER, CENTER);
 		textFont( computer_font );
-		textSize( this.text_size ); 
+		textSize( this.text_size );
 		text( this.content, this.x, this.y );
 		fill( this.color[2] );
 		if ( this.isMouseOn ){

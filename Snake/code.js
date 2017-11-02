@@ -1,9 +1,15 @@
-var snk;
-var scl = 10;
-var food;
+var canvas,
+    snk,
+    scl = 10,
+    food;
+
 
 function setup() {
-  createCanvas(500, 500);
+  canvas = createCanvas( 500, 500);
+  canvas.parent( 'p5-sketch' );
+
+  let x = (windowWidth - width) / 2;
+  canvas.position( x, 200 );
   snk = new Snake();
   food = new Food();
   food.changePosition();
