@@ -3,13 +3,9 @@ function field(){
 	noStroke();
 	fill( 255 );
 	rect( (window.innerWidth/2) - 250, 0, 3, 500);
-	rect( 7 + (window.innerWidth/2) - 250, 0, 3, 500);
 	rect( (window.innerWidth/2) - 250, 0, 500, 3);
-	rect( (window.innerWidth/2) - 250, 7, 500, 3);
 
-	rect( (window.innerWidth/2) + 250 - 10, 0, 3, 500);
 	rect( (window.innerWidth/2) + 250 - 3, 0, 3, 500);
-	rect( (window.innerWidth/2) - 250, 500-10, 500, 3);
 	rect( (window.innerWidth/2) - 250, 500-3, 500, 3);
 	pop();
 }

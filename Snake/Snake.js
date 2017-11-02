@@ -45,14 +45,6 @@ class Snake{
 	}
 
 	death() {
-		if( this.x > (window.innerWidth/2) + 250 -20 || this.x <= (window.innerWidth/2) - 250 || this.y < 10 || this.y >= 490 ){
-			this.total = 0;
-			this.tail = [];
-			this.x = 100 + (window.innerWidth/2) - 250;
-			this.x-= this.x%scl;
-			this.y = 100;
-			this.dir( 1 );
-		}
 		if( this.tail[0] !== null ){
 			for (var i = 0; i < this.tail.length; i++) {
 				var pos = this.tail[i];
@@ -71,6 +63,14 @@ class Snake{
 	}
 
 	update() {
+		if( this.x > (window.innerWidth/2) + 250 -20 )
+			this.x = (window.innerWidth/2) - 250;
+		else if( this.x < (window.innerWidth/2) - 250 + 10 )
+			this.x = (window.innerWidth/2) + 250 -20;
+		if( this.y < 0 )
+			this.y = 490;
+		else if( this.y > 500 )
+			this.y = 10;
 		for (var i = 0; i < this.tail.length - 1; i++) {
 			this.tail[i] = this.tail[i + 1];
 		}
