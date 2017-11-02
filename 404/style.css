@@ -1,0 +1,32 @@
+body{
+	background-color: black;
+}
+
+.title{
+	text-align: center;
+	font: 3.5em "computer_font";
+	padding-top: 20px;
+	padding-bottom: 20px;
+	color: white;
+}
+
+.subtitle{
+	text-align: center;
+	font: 2.5em "computer_font";
+	padding-top: 15px;
+	padding-bottom: 15px;
+	color: white;
+}
+
+.text{
+	text-align: center;
+	font: 1em "computer_font";
+	padding-top: 10px;
+	padding-bottom: 10px;
+	color: white;
+}
+
+@font-face {
+	font-family: 'computer_font';
+	src: url('/assets/computer_font.ttf');
+}

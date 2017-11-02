@@ -17,7 +17,10 @@ class Craft{
 	}
 	draw(){
 		push();
-		translate( this.x, this.y );
+		if ( this.right )
+			translate( this.x, this.y + 20 );
+		else
+			translate( this.x, this.y - 20 );
 		scale( this.scl.x, this.scl.y );
 		rotate( this.right ? -PI/2 : PI/2 );
 		image( this.image, 0, 0 );

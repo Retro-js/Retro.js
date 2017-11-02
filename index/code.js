@@ -14,8 +14,8 @@ function setup() {
 	canvas.parent( 'p5-sketch' );
 	buttons = [];
 	buttons[0] = new Button( "Snake", 100, 0, "../Snake/index.html" );
-	buttons[1] = new Button( "Space Invaders", 250, 1, "../Snake/index.html" );
-	buttons[2] = new Button( "Tetris", 400, 2, "../Snake/index.html" );
+	buttons[1] = new Button( "Space Invaders", 250, 1, "../404/index.html" );
+	buttons[2] = new Button( "Tetris", 400, 2, "../404/index.html" );
 
 	crafts = [];
 	crafts[0] = new Craft( "../assets/menu/galaga_craft.png", createVector( 0.15, 0.15 ), true );
