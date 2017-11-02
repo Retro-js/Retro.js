@@ -1,9 +1,9 @@
 class Food extends Snake{
 	changePosition() {
-		let x = random( width-20 );
-		let y = random( height-20 );
-		this.x = x - x%scl + 10;
-		this.y = y - y%scl + 10;
+		let x = randomInterval( 10, 490 ) + (window.innerWidth/2) - 250;
+		let y = randomInterval( 10, 490 );
+		this.x = x - x%scl;
+		this.y = y - y%scl;
 	}
 
 	draw(){

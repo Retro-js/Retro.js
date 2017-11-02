@@ -1,12 +1,15 @@
 class Snake{
 	constructor(){
-		this.x = 100;
+		this.x = 100 + (window.innerWidth/2) - 250;
+		this.x-= this.x%scl;
 		this.y = 100;
 		this.xspeed = 1;
 		this.yspeed = 0;
 		this.total = 0;
 		this.tail = [];
 		this.direction = 1;
+
+		this.aux = 0;
 	}
 	eat( fd ) {
 		var d = dist(this.x, this.y, fd.x, fd.y);
@@ -42,10 +45,11 @@ class Snake{
 	}
 
 	death() {
-		if( this.x < 10 || this.x >= 490 || this.y < 10 || this.y >= 490 ){
+		if( this.x > (window.innerWidth/2) + 250 -20 || this.x <= (window.innerWidth/2) - 250 || this.y < 10 || this.y >= 490 ){
 			this.total = 0;
 			this.tail = [];
-			this.x = 100;
+			this.x = 100 + (window.innerWidth/2) - 250;
+			this.x-= this.x%scl;
 			this.y = 100;
 			this.dir( 1 );
 		}
@@ -56,12 +60,14 @@ class Snake{
 				if (d < 1){
 					this.total = 0;
 					this.tail = [];
-					this.x = 100;
+					this.x = 100 + (window.innerWidth/2) - 250;
+					this.x-= this.x%scl;
 					this.y = 100;
 					this.dir( 1 );
 				}
 			}
 		}
+		this.aux++;
 	}
 
 	update() {
@@ -73,8 +79,6 @@ class Snake{
 		}
 		this.x = this.x + this.xspeed * scl;
 		this.y = this.y + this.yspeed * scl;
-		this.x = constrain(this.x, 0, width - scl);
-		this.y = constrain(this.y, 0, height - scl);
 	}
 
 	draw() {

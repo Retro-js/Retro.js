@@ -1,12 +1,7 @@
 var canvas,
-    computer_font,
     text_size,
     buttons,
     crafts;
-
-function preload(){
-	computer_font = loadFont( '../assets/computer_font.ttf' );
-}
 
 function setup() {
 	frameRate( 50 );

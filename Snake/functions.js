@@ -2,15 +2,15 @@ function field(){
 	push();
 	noStroke();
 	fill( 255 );
-	rect( 0, 0, 3, height);
-	rect( 7, 0, 3, height);
-	rect( 0, 0, width, 3);
-	rect( 0, 7, width, 3);
+	rect( (window.innerWidth/2) - 250, 0, 3, 500);
+	rect( 7 + (window.innerWidth/2) - 250, 0, 3, 500);
+	rect( (window.innerWidth/2) - 250, 0, 500, 3);
+	rect( (window.innerWidth/2) - 250, 7, 500, 3);
 
-	rect( width-10, 0, 3, height);
-	rect( width-3, 0, 3, height);
-	rect( 0, height-10, width, 3);
-	rect( 0, height-3, width, 3);
+	rect( (window.innerWidth/2) + 250 - 10, 0, 3, 500);
+	rect( (window.innerWidth/2) + 250 - 3, 0, 3, 500);
+	rect( (window.innerWidth/2) - 250, 500-10, 500, 3);
+	rect( (window.innerWidth/2) - 250, 500-3, 500, 3);
 	pop();
 }
 
@@ -24,4 +24,13 @@ function keyPressed() {
 	} else if (keyCode === LEFT_ARROW && snk.getDir()!==1 ) {
 		snk.dir( 3 );
 	}
+}
+
+function randomInterval( max, min ){
+	return Math.floor(Math.random()*(max-min+1)+min);
+}
+
+function mousePressed() {
+	if ( button.isMouseOn )
+			window.location = button.url;
 }

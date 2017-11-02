@@ -1,9 +1,14 @@
+var computer_font;
+function preload(){
+	computer_font = loadFont( '../assets/computer_font.ttf' );
+}
+
 class Button{
 	constructor( _content, _y, _t, _url, _x ){
 		this.content = _content;
-		if( _x === "undefined" )
+		if( _x == undefined )
 			this.x = window.innerWidth/2;
-		else 
+		else
 			this.x = _x;
 		this.y = _y;
 		this.text_size = 40;
