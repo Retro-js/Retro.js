@@ -8,7 +8,6 @@ class Snake{
 		this.total = 0;
 		this.tail = [];
 		this.direction = 1;
-
 		this.aux = 0;
 	}
 	eat( fd ) {
@@ -89,9 +88,8 @@ class Snake{
 	draw() {
 		fill( 255 );
 		noStroke();
-		for (var i = 0; i < this.tail.length; i++) {
+		for (var i = 0; i < this.tail.length; i++)
 			rect(this.tail[i].x, this.tail[i].y, scl, scl);
-		}
 		rect(this.x, this.y, scl, scl);
 	}
 }

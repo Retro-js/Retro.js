@@ -8,7 +8,6 @@ var canvas,
     crafts,
     button;
 
-
 function setup() {
   if( (window.innerWidth/2) - 250 > ("Menú".length)*40 + 100 ){
     canvas = createCanvas( window.innerWidth-20, 500);
@@ -24,7 +23,6 @@ function setup() {
   exfd = new ExtraFood();
   food.changePosition();
   frameRate(15);
-
   crafts = [];
 	crafts[0] = new Craft( "../assets/menu/galaga_craft.png",     createVector( 0.15, 0.15 ), true );
 	crafts[1] = new Craft( "../assets/menu/spinvaders_craft.png", createVector( 3, 3 ),       false );

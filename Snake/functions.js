@@ -4,7 +4,6 @@ function field(){
 	fill( 255 );
 	rect( (window.innerWidth/2) - 250, 0, 10, 500);
 	rect( (window.innerWidth/2) - 250, 0, 500, 10);
-
 	rect( (window.innerWidth/2) + 250 - 10, 0, 10, 500);
 	rect( (window.innerWidth/2) - 250, 500-10, 500, 10);
 	pop();
@@ -24,15 +23,14 @@ function scoresPoints(){
 }
 
 function keyPressed() {
-	if (keyCode === UP_ARROW && snk.getDir()!==0 ) {
+	if (keyCode === UP_ARROW && snk.getDir()!==0 )
 		snk.dir( 2 );
-	} else if (keyCode === DOWN_ARROW && snk.getDir()!==2 ) {
+	else if (keyCode === DOWN_ARROW && snk.getDir()!==2 )
 		snk.dir( 0 );
-	} else if (keyCode === RIGHT_ARROW && snk.getDir()!==3 ) {
+	else if (keyCode === RIGHT_ARROW && snk.getDir()!==3 )
 		snk.dir( 1 );
-	} else if (keyCode === LEFT_ARROW && snk.getDir()!==1 ) {
+	else if (keyCode === LEFT_ARROW && snk.getDir()!==1 )
 		snk.dir( 3 );
-	}
 }
 
 function randomInterval( max, min ){
