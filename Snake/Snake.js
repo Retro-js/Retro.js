@@ -10,8 +10,9 @@ class Snake{
 		this.direction = 1;
 		this.aux = 0;
 	}
+
 	eat( fd ) {
-		var d = dist(this.x, this.y, fd.x, fd.y);
+		let d = dist(this.x, this.y, fd.x, fd.y);
 		if (d < 1) {
 			this.total ++;
 			fd.changePosition();
@@ -41,6 +42,7 @@ class Snake{
 		}
 		this.direction = n;
 	}
+
 	getDir(){
 		return this.direction;
 	}
@@ -48,8 +50,8 @@ class Snake{
 	death() {
 		if( this.tail[0] !== null ){
 			for (var i = 0; i < this.tail.length; i++) {
-				var pos = this.tail[i];
-				var d = dist(this.x, this.y, pos.x, pos.y);
+				let pos = this.tail[i];
+				let d = dist(this.x, this.y, pos.x, pos.y);
 				if (d < 1){
 					this.total = 0;
 					this.tail = [];
@@ -57,6 +59,7 @@ class Snake{
 					this.x-= this.x%scl;
 					this.y = 100;
 					this.dir( 1 );
+					resetScore();
 				}
 			}
 		}

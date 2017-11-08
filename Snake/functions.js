@@ -41,3 +41,8 @@ function mousePressed() {
 	if ( button.isMouseOn )
 			window.location = button.url;
 }
+
+function resetScore(){
+	score  = 0;
+	xscore = 0;
+}
