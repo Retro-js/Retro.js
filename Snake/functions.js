@@ -10,6 +10,19 @@ function field(){
 	pop();
 }
 
+function scoresPoints(){
+	push();
+	fill( 'white' );
+	if( (window.innerWidth/2) - 250 > ("Menú".length)*40 + 100 ){
+		rect( (window.innerWidth/2) + 250 + 20, 250, scl, scl );
+		text( "= " + score, (window.innerWidth/2) + 250 + 50, 250);
+		fill( 'red' );
+		rect( (window.innerWidth/2) + 250 + 20, 350, scl, scl );
+		text( "= " + xscore, (window.innerWidth/2) + 250 + 50, 350 );
+	}
+	pop();
+}
+
 function keyPressed() {
 	if (keyCode === UP_ARROW && snk.getDir()!==0 ) {
 		snk.dir( 2 );

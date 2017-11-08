@@ -16,6 +16,8 @@ class Snake{
 		if (d < 1) {
 			this.total ++;
 			fd.changePosition();
+			score +=  fd.type;
+			xscore += ( fd.type===5 ) ? 1 : 0;
 		}
 	}
 
@@ -63,20 +65,24 @@ class Snake{
 	}
 
 	update() {
-		if( this.x > (window.innerWidth/2) + 250 -20 )
-			this.x = (window.innerWidth/2) - 250;
-		else if( this.x < (window.innerWidth/2) - 250 + 10 )
-			this.x = (window.innerWidth/2) + 250 -20;
-		if( this.y < 0 )
-			this.y = 490;
-		else if( this.y > 500 )
-			this.y = 10;
 		for (var i = 0; i < this.tail.length - 1; i++) {
 			this.tail[i] = this.tail[i + 1];
 		}
 		if (this.total >= 1) {
 			this.tail[this.total - 1] = createVector(this.x, this.y);
 		}
+		if( this.x > (window.innerWidth/2) + 250 -20 ){
+			this.x = (window.innerWidth/2) - 250 ;
+			this.x-= this.x%scl;
+		}
+		else if( this.x < (window.innerWidth/2) - 250 + 10 ){
+			this.x = (window.innerWidth/2) + 250 - scl;
+			this.x-= this.x%scl;
+		}
+		if( this.y < 0 )
+			this.y = 490;
+		else if( this.y > 500 )
+			this.y = 10;
 		this.x = this.x + this.xspeed * scl;
 		this.y = this.y + this.yspeed * scl;
 	}
