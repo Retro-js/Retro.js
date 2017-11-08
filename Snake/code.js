@@ -6,16 +6,19 @@ var canvas,
     score = 0,
     xscore = 0, //ExtraFood
     crafts,
-    button;
+    menu_but,
+    again_but,
+    game_over = false;
 
 function setup() {
   if( (window.innerWidth/2) - 250 > ("Menú".length)*40 + 100 ){
     canvas = createCanvas( window.innerWidth-20, 500);
     let _x = ( (window.innerWidth/2) - 250 - ("Menú".length)*40 + 100 )/2;
-    button = new Button( "Menú", 250, 0, "../index/index.html", _x );
+    menu_but = new Button( "Menú", 250, 0, "../index/index.html", _x );
+    again_but = new Button( "De nuevo", 400, 2, "resetSnake", (window.innerWidth/2) );
   } else{
     canvas = createCanvas( window.innerWidth-20, 700);
-    button = new Button( "Menú", 600, 0, "../index/index.html" );
+    menu_but = new Button( "Menú", 600, 0, "../index/index.html" );
   }
   canvas.parent( 'p5-sketch' );
   snk  = new Snake();
@@ -31,16 +34,24 @@ function setup() {
 function draw() {
 	background( 'black' );
   field();
-	scoresPoints();
-	snk.eat( food );
-	snk.death();
-	snk.update();
-	snk.draw();
-	food.draw();
-  button.draw();
-  if ( button.isMouseOn ) {
-    crafts[0].moveTo( button );
-  	crafts[1].moveTo( button );
+	scores();
+  if( !game_over ){
+    snk.eat( food );
+  	snk.death();
+  	snk.update();
+  	snk.draw();
+  	food.draw();
+  } else{
+    againScreen()
+    again_but.draw();
+  }
+  menu_but.draw();
+  if ( menu_but.isMouseOn ) {
+    crafts[0].moveTo( menu_but );
+  	crafts[1].moveTo( menu_but );
+  } else if ( again_but.isMouseOn && game_over ) {
+    crafts[0].moveTo( again_but );
+  	crafts[1].moveTo( again_but );
   }
   if ( (score%10 == 0) && score>1 ) {
     exfd.draw();

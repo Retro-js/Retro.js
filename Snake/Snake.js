@@ -8,7 +8,7 @@ class Snake{
 		this.total = 0;
 		this.tail = [];
 		this.direction = 1;
-		this.aux = 0;
+		this.deaths = 0;
 	}
 
 	eat( fd ) {
@@ -53,17 +53,11 @@ class Snake{
 				let pos = this.tail[i];
 				let d = dist(this.x, this.y, pos.x, pos.y);
 				if (d < 1){
-					this.total = 0;
-					this.tail = [];
-					this.x = 100 + (window.innerWidth/2) - 250;
-					this.x-= this.x%scl;
-					this.y = 100;
-					this.dir( 1 );
-					resetScore();
+					game_over = true;
+					this.deaths++;
 				}
 			}
 		}
-		this.aux++;
 	}
 
 	update() {
