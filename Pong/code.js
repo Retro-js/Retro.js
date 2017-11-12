@@ -1,40 +1,55 @@
-let score = 0;
+leftscore = 0;
+rightscore = 0;
 
 function setup() {
-    createCanvas(500, 500);
-
+    createCanvas(600, 400);
+    noStroke();
     ball = new Ball();
-    pong = new Pong();
+    leftpong = new Pong(true);
+    rightpong = new Pong(false);
 }
 
 function draw() {
     background(0);
     
-    ball.hitPong(pong);
+    ball.hitPongLeft(leftpong);
+    ball.hitPongRight(rightpong);
 
-    pong.show();
-    pong.update();
+    leftpong.show();
+    rightpong.show();
+    leftpong.update();
+    rightpong.update();
     
     ball.update();
     ball.edges();
     ball.show();
     
     fill(255);
-    textSize(32);
-    text(score, 32, 40);
-
+    for(i= 0; i< 22; i++) {
+    rect((width/2)+5, i*20, 10, 10);
+    }
+    textSize(34);
+    text(leftscore, (width/2)-45, 40);
+    text(rightscore, (width/2)+39, 40);
 }
 
 
 function keyReleased() {
-    pong.move(0);
+    leftpong.move(0);
+    rightpong.move(0);
 }
 
 function keyPressed() {
     console.log(key);
     if (key == 'W') {
-        pong.move(-10);
+        leftpong.move(-10);
     } else if (key == 'S') {
-        pong.move(10);
+        leftpong.move(10);
     }
-  }  
+
+    if (key == 'I') {
+        rightpong.move(-10);
+    } else if (key == 'K') {
+        rightpong.move(10);
+    }
+} 

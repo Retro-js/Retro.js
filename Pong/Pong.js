@@ -1,12 +1,17 @@
 class Pong {
 
-    constructor() {
+    constructor(left) {
         this.y = height/2;
-        this.x = 20;
+        this.w = 20;
         this.h = 100;
         this.ychange = 0;
         
-       
+        if(left){
+            this.x = this.w;
+        }
+        else {
+            this.x = width- this.w;
+        }
         
     }
     
@@ -22,7 +27,7 @@ class Pong {
     show() {
         fill(255);
         rectMode(CENTER);
-        rect(this.x, this.y, this.x, this.h);
+        rect(this.x, this.y, this.w, this.h);
     }
 }
 
