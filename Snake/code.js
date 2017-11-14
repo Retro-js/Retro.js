@@ -34,13 +34,13 @@ function setup() {
 function draw() {
 	background( 'black' );
   field();
-	scores();
   if( !game_over ){
     snk.eat( food );
   	snk.death();
   	snk.update();
   	snk.draw();
   	food.draw();
+  	scores();
   } else{
     againScreen()
     again_but.draw();

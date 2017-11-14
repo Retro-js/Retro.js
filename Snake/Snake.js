@@ -67,16 +67,16 @@ class Snake{
 		if (this.total >= 1)
 			this.tail[this.total - 1] = createVector(this.x, this.y);
 		if( this.x > (window.innerWidth/2) + 250 -20 ){
-			this.x = (window.innerWidth/2) - 250 ;
+			this.x = (window.innerWidth/2) - 240 ;
 			this.x-= this.x%scl;
 		}
 		else if( this.x < (window.innerWidth/2) - 250 + 10 ){
 			this.x = (window.innerWidth/2) + 250 - scl;
 			this.x-= this.x%scl;
 		}
-		if( this.y < 0 )
-			this.y = 490;
-		else if( this.y > 500 )
+		if( this.y < 10 )
+			this.y = 480;
+		else if( this.y > 480 )
 			this.y = 0;
 		this.x = this.x + this.xspeed * scl;
 		this.y = this.y + this.yspeed * scl;
