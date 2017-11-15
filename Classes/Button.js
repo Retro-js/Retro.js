@@ -12,7 +12,7 @@ class Button{
 			this.x = _x;
 		this.y = _y;
 		this.text_size = 40;
-		if( _x == undefined )
+		if( _w == undefined )
 			this.w = (this.content.length)*this.text_size + 100;
 		else
 			this.w = _w;
