@@ -11,7 +11,7 @@ function setup() {
 
 function draw() {
     background(0);
-    
+
     ball.hitPongLeft(leftpong);
     ball.hitPongRight(rightpong);
 
@@ -19,18 +19,21 @@ function draw() {
     rightpong.show();
     leftpong.update();
     rightpong.update();
-    
+
     ball.update();
     ball.edges();
     ball.show();
-    
+
     fill(255);
     for(i= 0; i< 22; i++) {
     rect((width/2)+5, i*20, 10, 10);
     }
+    textFont( computer_font );
+    textAlign( RIGHT );
     textSize(34);
-    text(leftscore, (width/2)-45, 40);
-    text(rightscore, (width/2)+39, 40);
+    text(leftscore, (width/2), 40);
+    textAlign( LEFT );
+    text(rightscore, (width/2)+10, 40);
 }
 
 
@@ -52,4 +55,4 @@ function keyPressed() {
     } else if (key == 'K') {
         rightpong.move(10);
     }
-} 
+}
