@@ -4,7 +4,7 @@ function preload(){
 }
 
 class Button{
-	constructor( _content, _y, _t, _url, _x ){
+	constructor( _content, _y, _t, _url, _x, _w ){
 		this.content = _content;
 		if( _x == undefined )
 			this.x = window.innerWidth/2;
@@ -12,7 +12,10 @@ class Button{
 			this.x = _x;
 		this.y = _y;
 		this.text_size = 40;
-		this.w = (this.content.length)*this.text_size + 100;
+		if( _x == undefined )
+			this.w = (this.content.length)*this.text_size + 100;
+		else
+			this.w = _w;
 		this.h = this.text_size + 50;
 		this.type = _t;
 		this.isMouseOn = false;
