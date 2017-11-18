@@ -10,6 +10,8 @@ class Asteroid {
 		}
 
 	}
+
+
 	update(){
 		this.pos.add(this.vel);
 	}

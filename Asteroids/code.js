@@ -1,5 +1,6 @@
 var ship;
 var asteroids = []; 
+var lasers = [];
 
 function setup() {
   createCanvas(500, 500);
@@ -14,6 +15,7 @@ function keyReleased() {
 }
 function keyPressed(){
 	console.log(key);
+	
 	if(key == 'D'){
 		ship.setRotation(0.1);
 	
@@ -24,10 +26,25 @@ function keyPressed(){
 	else if (key == 'W'){
 		ship.boosting(true);
 	}
+	else if(key == ' ' ){
+	lasers.push(new Laser(ship.pos, ship.angle));
+	}
 
 }
 function draw() {
 	background(0);
+	
+	for (var i = 0; i < lasers.length; i++) {
+    lasers[i].render();
+    lasers[i].update();
+    	for (var j = 0; j < asteroids.length; j++) {
+    		if(lasers[i].hit(asteroids[j])) {
+    			print("HIT");
+    		}
+    	}
+
+	}
+
 	ship.render();
 	ship.edges();
 	ship.turn();
@@ -37,6 +54,6 @@ function draw() {
     asteroids[i].render();
     asteroids[i].update();
     asteroids[i].edges();
-}
+	}	
 
 }
