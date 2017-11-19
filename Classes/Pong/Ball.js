@@ -46,10 +46,10 @@ class Ball {
     }
     reset() {
         this.x = width/2;
-        this.y = height/2;
-        let angle = random(-PI, PI);
-        this.xspeed = 7 * Math.sin(angle);
-        this.yspeed = 7 * Math.cos(angle);
+        this.y = height - 50;
+        let angle = random( radians(200), radians(340));
+        this.xspeed = 7 * Math.cos(angle);
+        this.yspeed = 7 * Math.sin(angle);
         if (random(1) < 0.5) {
             this.xspeed *= -1;
         }
