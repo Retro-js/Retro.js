@@ -6,6 +6,11 @@ class Ball {
         this.yspeed = 0;
         this.r = 12;
 
+        this.sounds = [ loadSound('assets/bar.mp3'), loadSound('assets/point.mp3'), loadSound('assets/wall.mp3') ];
+        this.sounds[0].setVolume(0.5);
+        this.sounds[1].setVolume(0.5);
+        this.sounds[2].setVolume(0.5);
+
         this.reset();
     }
 
@@ -22,6 +27,7 @@ class Ball {
                 this.yspeed = 7 * sin(angle);
                 this.x = p.x + p.w/2 + this.r;
 
+                this.sounds[0].play();
             }
 
         }
@@ -37,6 +43,8 @@ class Ball {
                 this.xspeed = 7 * cos(angle);
                 this.yspeed = 7 * sin(angle);
                 this.x = p.x - p.w/2 - this.r;
+
+                this.sounds[0].play();
             }
         }
     }
@@ -62,18 +70,20 @@ class Ball {
     edges() {
         if (this.y < 0 || this.y > height) {
             this.yspeed *= -1;
+            this.sounds[2].play();
         }
 
 
         if ( this.x - this.r > width/2 + 320 ) {
             leftscore++;
             this.reset();
+            this.sounds[1].play();
         }
 
         if ( this.x + this.r < (width/2) - 320 ) {
-
             rightscore++;
             this.reset();
+            this.sounds[1].play();
         }
     }
 

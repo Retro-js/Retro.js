@@ -1,11 +1,11 @@
-var leftscore = 0;
-var rightscore = 0;
-var ball;
-var leftpong;
-var rightpong;
-var canvas;
-var menu_but;
-var crafts;
+var leftscore = 0,
+    rightscore = 0,
+    ball,
+    leftpong,
+    rightpong,
+    canvas,
+    menu_but,
+    crafts;
 
 function setup() {
     canvas = createCanvas( window.innerWidth - 100, 400 );
@@ -61,7 +61,6 @@ function keyReleased() {
 }
 
 function keyPressed() {
-    console.log(key);
     if (key == 'W') {
         leftpong.move(-10);
     } else if (key == 'S') {
