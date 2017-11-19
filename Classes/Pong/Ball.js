@@ -47,7 +47,7 @@ class Ball {
     reset() {
         this.x = width/2;
         this.y = height - 50;
-        let angle = random( radians(200), radians(340));
+        let angle = random( -PI/4, PI/4 );
         this.xspeed = 7 * Math.cos(angle);
         this.yspeed = 7 * Math.sin(angle);
         if (random(1) < 0.5) {
@@ -78,6 +78,7 @@ class Ball {
 class BallBO extends Ball{
   constructor(){
     super();
+    this.r = 3;
   }
   hitBar( b ){
     if( this.x > b.x-(b.h/2) && this.x < b.x+(b.h/2) ){
@@ -91,7 +92,6 @@ class BallBO extends Ball{
   }
   edges() {
       if(this.y > height){
-        score++;
         this.reset();
       }
       if (this.y < 0) {
@@ -100,5 +100,19 @@ class BallBO extends Ball{
       if ( this.x - this.r > width/2 + 330 || this.x + this.r < (width/2) - 330 ) {
         this.xspeed *= -1;
       }
+  }
+  reset() {
+      this.x = (width/2)+10;
+      this.y = height - 50;
+      let angle = random( radians(200), radians(340));
+      this.xspeed = 7 * Math.cos(angle);
+      this.yspeed = 7 * Math.sin(angle);
+      if (random(1) < 0.5) {
+          this.xspeed *= -1;
+      }
+  }
+  show() {
+      fill(255);
+      ellipse(this.x, this.y, 24);
   }
 }
