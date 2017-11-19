@@ -30,12 +30,8 @@ class HorizontalBar extends Pong{
     this.x = width / 2;
   }
   update() {
-    if(this.x>=(width/2)-330 && this.x<=(width/2)+330)
-      this.x += this.ychange;
-    else if (this.x<(width/2)-330)
-      this.x=(width/2)-330;
-    else if (this.x>(width/2)+330)
-      this.x=(width/2)+330;
+    this.x += this.ychange;
+    this.x = constrain( this.x, (width/2)-330, (width/2)+330 );
   }
   show() {
       fill(255);

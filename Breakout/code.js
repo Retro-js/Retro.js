@@ -1,5 +1,7 @@
 var canvas,
-    bar;
+    bar,
+    ball,
+    score;
 
 function setup() {
   canvas = createCanvas( window.innerWidth - 100, 600 );
@@ -7,13 +9,19 @@ function setup() {
   noStroke();
 
   bar = new HorizontalBar();
+  ball = new BallBO();
 }
 function draw() {
   background(0);
   bar.update();
   bar.show();
-  console.log( width );
-  console.log( bar.x );
+  rect((width/2)-380,height/2,20,height);
+  rect((width/2)+380,height/2,20,height);
+
+  ball.update();
+  ball.edges();
+  ball.show();
+  ball.hitBar( bar );
 }
 
 // -----------------------------------------------------------------------------
