@@ -68,7 +68,7 @@ class Ball {
     }
 
     edges() {
-        if (this.y < 0 || this.y > height) {
+        if (this.y < 10 || this.y > height-10) {
             this.yspeed *= -1;
             this.sounds[2].play();
         }

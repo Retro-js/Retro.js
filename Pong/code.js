@@ -46,6 +46,8 @@ function draw() {
     for( let i= 0; i< 22; i++) {
     rect((width/2)+5, i*20, 10, 10);
     }
+    rect( (width/2), 5, 640, 10);
+    rect( (width/2), height-5, 640, 10);
     textFont( computer_font );
     textAlign( RIGHT );
     textSize(34);
