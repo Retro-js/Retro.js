@@ -10,7 +10,7 @@ class Brick {
   draw(){
     if( this.show ){
       push();
-      rectMode( CENTER );
+      rectMode( CORNER );
       fill( this.color );
       rect( this.x, this.y, 70, 18);
       pop();

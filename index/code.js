@@ -12,7 +12,7 @@ function setup() {
 	buttons[1] = new Button( "Space Invaders", 250, 1, "../404/index.html" );
 	buttons[2] = new Button( "Tetris", 400, 2, "../404/index.html" );
   buttons[3] = new Button( "PONG", 550, 1, "../Pong/index.html" );
-  buttons[4] = new Button( "Breakout", 700, 0, "../Brekout/index.html" );
+  buttons[4] = new Button( "Breakout", 700, 0, "../Breakout/index.html" );
 
 	crafts = [];
 	crafts[0] = new Craft( "../assets/menu/galaga_craft.png", createVector( 0.15, 0.15 ), true );

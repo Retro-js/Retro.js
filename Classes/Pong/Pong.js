@@ -31,11 +31,11 @@ class HorizontalBar extends Pong{
   }
   update() {
     this.x += this.ychange;
-    this.x = constrain( this.x, (width/2)-330, (width/2)+330 );
+    this.x = constrain( this.x, (width/2)-380, (width/2)+280 );
   }
   show() {
       fill(255);
-      rectMode(CENTER);
+      rectMode( CORNER );
       rect(this.x, this.y, this.h, this.w);
   }
 }

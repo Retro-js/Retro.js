@@ -78,12 +78,11 @@ class Ball {
 class BallBO extends Ball{
   constructor(){
     super();
-    this.r = 3;
   }
   hitBar( b ){
-    if( this.x > b.x-(b.h/2) && this.x < b.x+(b.h/2) ){
-      if( this.y+this.r > b.y-(b.w/2)){
-        let diff = this.x - (b.x - b.h/2);
+    if( this.x > b.x && this.x < b.x+(b.h) ){
+      if( this.y+this.r > b.y ){
+        let diff = this.x - (b.x);
         let angle = map(diff, 0, b.h, radians(200), radians(340));
         this.xspeed = 7 * cos(angle);
         this.yspeed = 7 * sin(angle);
@@ -113,6 +112,7 @@ class BallBO extends Ball{
   }
   show() {
       fill(255);
-      ellipse(this.x, this.y, 24);
+      ellipseMode( CENTER );
+      ellipse(this.x, this.y, this.r);
   }
 }
