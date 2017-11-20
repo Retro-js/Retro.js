@@ -2,12 +2,19 @@ var canvas,
     bar,
     ball,
     bricks,
-    score = 5;
+    score = 5,
+    menu_but,
+    crafts;
 
 function setup() {
   canvas = createCanvas( window.innerWidth - 100, 600 );
   canvas.position( (window.innerWidth - width)/2 );
   noStroke();
+  let _x = ( (window.innerWidth/2) - 250 - ("Menú".length)*40 + 10 )/2;
+  menu_but  = new Button( "Menú", 200, 0, "../index/index.html", _x, 150 );
+  crafts    = [];
+  crafts[0] = new Craft( "../assets/menu/galaga_craft.png",     createVector( 0.15, 0.15 ), true );
+  crafts[1] = new Craft( "../assets/menu/spinvaders_craft.png", createVector( 3, 3 ),       false );
 
   bricks = [];
 
@@ -52,4 +59,13 @@ function draw() {
       collide( i, j );
     }
   }
+  menu_but.draw();
+  if ( menu_but.isMouseOn ) {
+    crafts[0].moveTo( menu_but );
+    crafts[1].moveTo( menu_but );
+  }
+}
+function mousePressed() {
+	if ( menu_but.isMouseOn )
+		window.location = menu_but.url;
 }

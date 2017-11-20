@@ -10,6 +10,8 @@ function keyPressed() {
     }
 }
 
+// -----------------------------------------------------------------------------
+
 function collide( i, j ) {
   if( ball.x > bricks[i][j].x - 37 &&
       ball.x < bricks[i][j].x + 37 &&
