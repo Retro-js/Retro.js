@@ -1,28 +1,29 @@
-function Enemigos(x,y){
-  this.x = x;
-  this.y = y;
-  this.vida = true;
-  this.derecha = true;
-
-  this.move = function () {
-  if(this.derecha){
-    this.x += 3;
-    if (this.x >= 800){
-      this.y += 100;
-      this.derecha = false;
-    }
-  }
-  else{
-    this.x -= 3;
-    if (this.x <= 0){
-      this.y += 100;
-      this.derecha = true;
-    }
-  }
+class Enemigos {
+  constructor(x,y,t){
+    this.x = x;
+    this.y = y;
+    this.avance = 1;
+    this.r = 30;
+    this.type = t;
+    this.show = true;
   }
 
-  this.mostrar = function() {
-    rect(this.x,this.y, 40,40);
+  move(){
+    this.x += this.avance;
   }
 
+  bajar(){
+      this.y += 50;
+      this.avance *=-1;
+  }
+
+  borrar(){
+    this.show = false;
+    this.y = -height*2;
+  }
+
+  mostrar(){
+    if ( this.show )
+      rect (this.x,this.y,this.r,this.r);
+  }
 }
