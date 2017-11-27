@@ -10,7 +10,8 @@
   var myFont;
   var shoot;
   var invaderkilled;
-  var start = true;
+  var lives = 3;
+  var muertes = [];
 
   function preload() {
   soundFormats('mp3', 'ogg');
@@ -47,16 +48,48 @@
 
   function draw(){
     background(0);
+  if (lives == 0) {
+  fill(255);
+  textFont(myFont);
+  textSize(30);
+	text("GAME OVER", 185, 250);
+	textSize(25);
+	text("Puntaje:  ", 180, 300);
+	text(puntaje, 330, 300);
+	textSize(18);
+	fill(255, 100, 0);
+	noLoop();
+
+	}
+	else {
+
+    for(i=0; i<lives; i++) {
+      push()
+      fill(255,0,0);
+      translate(360+(i*20), 15);
+      scale(0.5);
+      beginShape();
+      vertex(50, 15);
+      bezierVertex(50, -5, 90, 5, 50, 40);
+      vertex(50, 15);
+      bezierVertex(50, -5, 10, 5, 50, 40);
+      endShape(CLOSE);
+      pop();
+    }
     textAlign(LEFT);
     textFont(myFont);
     textSize(20);
-    text("SCORE", 10, 30);
-    text(puntaje, 100, 30);
+    text("SCORE", 30, 30);
+    text(puntaje, 120, 30);
     var cambio = false;
     for (var i = 0; i < basicos.length; i++){
       for(var j = 0; j < 3; j++){
         basicos[i][j].mostrar();
         basicos[i][j].move();
+        if((frameCount % 109 == 0) && (i % 2== 0) && basicos[i][j].y >= 0 ){
+        muerte = new Disparos(basicos[i][j].x,basicos[i][j].y,5);
+        muertes.push(muerte);
+        }
         if( basicos[i][j].x > ancho-30 || basicos[i][j].x <0 )
           cambio = true;
       }
@@ -67,6 +100,10 @@
         fill(100);
         medios[i][j].mostrar();
         medios[i][j].move();
+        if((frameCount % 89 == 0) && (i % 2== 0) && medios[i][j].y >= 0){
+        muerte = new Disparos(medios[i][j].x,medios[i][j].y,5);
+        muertes.push(muerte);
+        }
         if( medios[i][j].x > ancho-30 || medios[i][j].x <0 )
           cambio = true;
         fill(255);
@@ -78,11 +115,26 @@
         fill(200);
         dificiles[i][j].mostrar();
         dificiles[i][j].move();
+        if((frameCount % 137 == 0 ) && (i % 2== 0) && dificiles[i][j].y >= 0){
+        muerte = new Disparos(dificiles[i][j].x,dificiles[i][j].y,5);
+        muertes.push(muerte);
+        }
         if( medios[i][j].x > ancho-30 || medios[i][j].x <0 )
           cambio = true;
         fill(255);
       }
     }
+
+    for(var i = 0; i < muertes.length; i++){
+      if(i % 2== 0){
+      muertes[i].mostrar();
+      muertes[i].mover();
+      if(collideRectCircle(muertes[i].x,muertes[i].y-50,muertes[i].r,muertes[i].r*2,nave.x,nave.y,nave.r)){
+        lives = 2;
+      }
+    }
+    }
+
 
     if( cambio ){
       for (var i = 0; i < medios.length; i++){
@@ -139,18 +191,22 @@
     for (var i = 0; i < basicos.length; i++){
       for (var j = 0; j < 3; j++){
         if(basicos[i][j].choque(nave)){
-          console.log("exito");
+          lives = 0;
         }
       }
     }
     for (var i = 0; i < medios.length; i++){
       for (var j = 0; j < 2; j++){
-        medios[i][j].choque(nave);
+        if(medios[i][j].choque(nave)){
+          lives = 0;
+        }
       }
     }
     for (var i = 0; i < dificiles.length; i++){
       for (var j = 0; j < 1; j++){
-        dificiles[i][j].choque(nave);
+        if(dificiles[i][j].choque(nave)){
+          lives = 0;
+        }
       }
     }
 
@@ -162,9 +218,7 @@
       if(balas[i].y <= 0 )
         balas.splice(i,1);
     }
-
-
-
+  }
 
   }
 
