@@ -1,6 +1,10 @@
 var user;
 var img;
+var startingAudio;
+var chomp;
 var start;
+var counterInitial;
+var deathAudio;
 var startBool;
 var again;
 var redGhost;
@@ -33,10 +37,9 @@ var cookieA;
 var cookieB;
 var cookieC;
 var cookieD;
+var counterTimeSound;
+var milliSeconds;
 function game(){
-  time = (minutes*60) + seconds;
-  minutes = minute();
-  seconds = second();
   push();
   textSize(32);
   textFont(myFont);
@@ -185,6 +188,7 @@ function game(){
   }
   if(colition){
     if(redGhost.state){
+    deathAudio.play();
     lives -=1;
     user.x = 822;
     user.y = 630;
