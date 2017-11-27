@@ -4,6 +4,7 @@ class Laser {
 		this.vel = p5.Vector.fromAngle(a);
 		this.vel.mult(10);
 		this.angle = a;
+		
 
 	}
 
@@ -32,5 +33,14 @@ class Laser {
 		}
 
 	}
+	edges() {
+    if (this.pos.x > width || this.pos.x < 0) {
+      return true;
+    }
+    if (this.pos.y > height || this.pos.y < 0) {
+      return true;
+    }
+    return false;
+  }
 
 }
