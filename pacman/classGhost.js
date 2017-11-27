@@ -1,5 +1,5 @@
 class ghost{
-  constructor(xo, yo, coR, coG, coB, m){
+  constructor(xo, yo, coR, coG, coB, m, state, home, escape){
     this.x = xo;
     this.y = yo;
     this.colorR = coR;
@@ -11,14 +11,33 @@ class ghost{
     this.m = m;
     this.goalX = 988;
     this.goalY = 232;
+    this.state = state;
+    this.home = home;
+    this.escape = escape;
   }
   display(){
     push();
+    if(this.state){
     fill(this.colorR, this.colorG, this.colorB);
+  }
+  else{
+    if(!this.escape){
+    fill(255, 255, 255);
+  }
+  else{
+    fill(120, 120, 120);
+   }
+  }
     ellipse(this.x, this.y, 35, 35);
     pop();
   }
   move(){
+    if(this.x >= 1133){
+      this.x = 515;
+    }
+    if(this.x <= 509){
+      this.x = 1133;
+    }
     switch(this.m){
       case 0:{
         this.getColor = get(this.x - 20, this.y);
@@ -43,7 +62,7 @@ class ghost{
           }
         }
         else{
-          this.x = this.x - 3;
+          this.x = this.x - 4;
         }
         break;
       }
@@ -71,7 +90,7 @@ class ghost{
             }
           }
           else{
-            this.y = this.y + 3;
+            this.y = this.y + 4;
           }
 
       break;
@@ -102,7 +121,7 @@ class ghost{
 
           }
           else{
-            this.x = this.x + 3;
+            this.x = this.x + 4;
           }
         break;
       }
@@ -131,7 +150,7 @@ class ghost{
 
           }
           else{
-            this.y = this.y - 3;
+            this.y = this.y - 4;
           }
         break;
       }

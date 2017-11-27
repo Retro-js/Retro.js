@@ -4,6 +4,11 @@ class pacman {
 	this.y=yo;
   this.lv = [];
   this.despachador = 0;
+  this.puntuation = 0;
+  this.power = false;
+  this.alert = false;
+  this.counter = 0;
+  this.seconds = second();
   for(let i = 0; i<500; i++){
     this.lv[i] = [];
   }
@@ -18,18 +23,30 @@ class pacman {
 	}
 
 	 move(s){
-     
+     this.seconds = second();
+     if(this.x >= 1133){
+       this.x = 515;
+     }
+     if(this.x <= 509){
+       this.x = 1133;
+     }
      this.bol = false;
      for(let i=1; i<500; i++){
        if(this.lv[i][0]){
+         if(this.lv[i][3]>20){
          push(0);
          fill(0);
-         rectMode(CENTER);
-         rect(this.lv[i][1], this.lv[i][2], 27, 27);
+         rect(this.lv[i][1]-13, this.lv[i][2]-13, 27, 27);
          pop();
        }
-     }
-
+       else{
+         push(0);
+         fill(0);
+         rect(this.lv[i][1]-13, this.lv[i][2]-18, 27, 42);
+         pop();
+      }
+    }
+  }
      this.m;
      this.boA = [0, 0, 0, 0];
      this.boB = [0, 0, 0, 0];
@@ -56,7 +73,7 @@ class pacman {
       case 0:{
         this.despachador = 0;
         this.boA = get(this.x - 20, this.y);
-        if((this.boA[2] > 150)&&(this.boA[1]+this.boA[0]<100)){
+        if((this.boA[2] > 200)&&(this.boA[1]+this.boA[0]<100)){
           this.x = this.x;
         }
         else{
@@ -71,6 +88,10 @@ class pacman {
             this.lv[this.despachador][0] = true;
             this.lv[this.despachador][1] = this.x - 20;
             this.lv[this.despachador][2] = this.y;
+            this.lv[this.despachador][3] = this.boA[0];
+            if(this.despachador!= 0){
+              this.puntuation = this.despachador;
+            }
       }
           else{
           this.x = this.x - s;
@@ -82,7 +103,8 @@ class pacman {
       case 1:{
         this.despachador = 0;
         this.boA = get(this.x, this.y  + 20);
-        if((this.boA[2] > 150)&&(this.boA[1]+this.boA[0]<100)){
+
+        if((this.boA[2] > 200)&&(this.boA[1]+this.boA[0]<100)){
           this.y = this.y;
         }
         else{
@@ -97,6 +119,10 @@ class pacman {
             this.lv[this.despachador][0] = true;
             this.lv[this.despachador][1] = this.x;
             this.lv[this.despachador][2] = this.y  + 20;
+            this.lv[this.despachador][3] = this.boA[0];
+            if(this.despachador!= 0){
+              this.puntuation = this.despachador;
+            }
       }
           else{
           this.y = this.y + s;
@@ -109,7 +135,8 @@ class pacman {
       case 2:{
         this.despachador = 0;
         this.boA = get(this.x + 20, this.y);
-        if((this.boA[2] > 150)&&(this.boA[1]+this.boA[0]<100)){
+
+        if((this.boA[2] > 200)&&(this.boA[1]+this.boA[0]<100)){
           this.x = this.x;
         }
         else{
@@ -124,6 +151,10 @@ class pacman {
             this.lv[this.despachador][0] = true;
             this.lv[this.despachador][1] = this.x  + 20;
             this.lv[this.despachador][2] = this.y;
+            this.lv[this.despachador][3] = this.boA[0];
+            if(this.despachador!= 0){
+              this.puntuation = this.despachador;
+            }
       }
           else{
           this.x = this.x + s;
@@ -136,7 +167,8 @@ class pacman {
       case 3:{
         this.despachador = 0;
         this.boA = get(this.x   , this.y - 20);
-        if((this.boA[2] > 150)&&(this.boA[1]+this.boA[0]<100)){
+        
+        if((this.boA[2] > 200)&&(this.boA[1]+this.boA[0]<100)){
           this.y = this.y;
         }
         else{
@@ -151,6 +183,10 @@ class pacman {
             this.lv[this.despachador][0] = true;
             this.lv[this.despachador][1] = this.x;
             this.lv[this.despachador][2] = this.y -20;
+            this.lv[this.despachador][3] = this.boA[0];
+            if(this.despachador!= 0){
+              this.puntuation = this.despachador;
+            }
       }
           else{
           this.y = this.y - s;
