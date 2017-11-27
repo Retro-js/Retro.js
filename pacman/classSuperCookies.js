@@ -6,7 +6,7 @@ class cookies{
   }
   display(){
     if(this.state){
-      this.seconds = second();
+    this.seconds = second();
     push();
     if((this.seconds%2)%2==0){
     fill(255, 180, 120);

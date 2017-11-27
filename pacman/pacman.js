@@ -27,6 +27,10 @@ var time;
 var seconds;
 var minutes;
 var counter;
+var cookieA;
+var cookieB;
+var cookieC;
+var cookieD;
 function preload() {
   img = loadImage("fondo.jpg");
   myFont = loadFont('PAC-FONT.TTF');
@@ -48,6 +52,10 @@ function setup() {
   collideII = false;
   collideIII = false;
   collideIV = false;
+  cookieA = 0;
+  cookieB = 0;
+  cookieC = 0;
+  cookieD = 0;
   counter = 0;
   collideCookie= false;
 }
@@ -80,19 +88,28 @@ function draw() {
   cookieII.display();
   cookieIII.display();
   cookieIV.display();
+  if(cookieA==0){
   collideI = collideCircleCircle(user.x, user.y, 35, cookieI.x, cookieI.y, 25);
+}
+
   if(collideI){
     cookieI.state=false;
   }
+    if(cookieB==0){
   collideII = collideCircleCircle(user.x, user.y, 35, cookieII.x, cookieII.y, 25);
+}
   if(collideII){
     cookieII.state=false;
   }
+    if(cookieC==0){
   collideIII = collideCircleCircle(user.x, user.y, 35, cookieIII.x, cookieIII.y, 25);
+}
   if(collideIII){
     cookieIII.state=false;
   }
+    if(cookieD==0){
   collideIV = collideCircleCircle(user.x, user.y, 35, cookieIV.x, cookieIV.y, 25);
+}
   if(collideIV){
     cookieIV.state=false;
   }
@@ -108,9 +125,22 @@ function draw() {
       counter = time;
     }
   }
+  if(!cookieI.state){
+    cookieA+=1;
+  }
+  if(!cookieII.state){
+    cookieB+=1;
+  }
+  if(!cookieIII.state){
+    cookieC+=1;
+  }
+  if(!cookieIV.state){
+    cookieD+=1;
+  }
   if(!redGhost.home){
     redGhost.goalX = user.x;
     redGhost.goalY = user.y;
+    redGhost.escape = false;
   }
   else{
     redGhost.escape = true;
@@ -118,6 +148,7 @@ function draw() {
     redGhost.goalY = 367;
   }
   if(!yellowGhost.home){
+    yellowGhost.escape = false;
     yellowGhost.goalX = user.x;
     yellowGhost.goalY = user.y;
   }
@@ -127,6 +158,7 @@ function draw() {
     yellowGhost.goalY = 367;
   }
   if(!blueGhost.home){
+    blueGhost.escape = false;
     blueGhost.goalX = user.x;
     blueGhost.goalY = user.y;
   }
@@ -136,6 +168,7 @@ function draw() {
     blueGhost.goalY = 367;
   }
   if(!pinkGhost.home){
+    pinkGhost.escape = false;
     pinkGhost.goalX = user.x;
     pinkGhost.goalY = user.y;
   }
@@ -157,7 +190,7 @@ function draw() {
     collideCookie = false;
     counter = 0;
   }
-  console.log(collideCookie);
+  console.log(cookieA);
   colitionRedGhost = collideCircleCircle(user.x, user.y, 35, redGhost.x, redGhost.y, 35);
   if(collideCookie&&colitionRedGhost){
     redGhost.home = true;
@@ -222,7 +255,10 @@ function draw() {
     pop();
   }
 
-
+collideI=false;
+collideII=false;
+collideIII=false;
+collideIV=false;
 }
 function field(){
   push();
