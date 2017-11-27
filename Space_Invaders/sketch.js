@@ -5,10 +5,25 @@
   var balas = [] ;
   var ancho = 600;
   var alto = 600;
+  var balEnemigo = [];
+  var puntaje = 0;
+  var myFont;
+  var shoot;
+  var invaderkilled;
+  var start = true;
+
+  function preload() {
+  soundFormats('mp3', 'ogg');
+   shoot = loadSound('shoot.mp3');
+   invaderkilled = loadSound('invaderkilled.mp3');
+   myFont = loadFont('ca.ttf');
+}
+
 
   function setup(){
     createCanvas(ancho,alto);
     nave =  new Personaje(ancho/2);
+
     for(var i = 0; i < 10; i++){
       basicos[i] = [];
       for(var j = 0; j < 3; j++)
@@ -27,12 +42,16 @@
         dificiles[i][j] = new Enemigos(500-i*50,25+j*50,30);
     }
 
-    frameRate( 40 );
+    frameRate( 45 );
   }
 
   function draw(){
     background(0);
-    
+    textAlign(LEFT);
+    textFont(myFont);
+    textSize(20);
+    text("SCORE", 10, 30);
+    text(puntaje, 100, 30);
     var cambio = false;
     for (var i = 0; i < basicos.length; i++){
       for(var j = 0; j < 3; j++){
@@ -84,24 +103,36 @@
       balas[i].mostrar();
       balas[i].mover();
       for (var j = 0; j < basicos.length; j++){
-        for (var k = 0; k <basicos[j].length; k++)
-          balas[i].choque(basicos[j][k]) ;
+        for (var k = 0; k < basicos[j].length; k++)
+          if(balas[i].choque(basicos[j][k])){
+            puntaje += basicos[j][k].type;
+            invaderkilled.setVolume(0.1);
+            invaderkilled.play();
+          }
       }
     }
     for (var i = 0; i < balas.length; i++){
       balas[i].mostrar();
       balas[i].mover();
       for (var j = 0; j < medios.length; j++){
-        for (var k = 0; k <medios[j].length; k++)
-          balas[i].choque(medios[j][k]) ;
+        for (var k = 0; k < medios[j].length; k++)
+        if(balas[i].choque(medios[j][k])){
+          puntaje += medios[j][k].type;
+          invaderkilled.setVolume(0.1);
+          invaderkilled.play();
+        }
       }
     }
     for (var i = 0; i < balas.length; i++){
       balas[i].mostrar();
       balas[i].mover();
       for (var j = 0; j < dificiles.length; j++){
-        for (var k = 0; k <dificiles[j].length; k++)
-          balas[i].choque(dificiles[j][k]) ;
+        for (var k = 0; k < dificiles[j].length; k++)
+        if(balas[i].choque(dificiles[j][k])){
+          puntaje += dificiles[j][k].type;
+          invaderkilled.setVolume(0.1);
+          invaderkilled.play();
+        }
       }
     }
 
@@ -114,14 +145,20 @@
         balas.splice(i,1);
     }
 
+    for (var i = 0; i < balEnemigo.length; i++){
+
+    }
+
 
   }
 
 
   function keyReleased(){
       if(key == ' '){
-        bala = new Disparos(nave.x, alto);
+        bala = new Disparos(nave.x, alto,-5);
         balas.push(bala);
+        shoot.setVolume(0.1);
+        shoot.play();
   }
       else {
         return false;

@@ -1,14 +1,13 @@
-class Disparos {
-	constructor(x,y,avance) {
+class Azar extends Disparos{
+  constructor(x,y) {
 		this.x = x;
 		this.y = y;
 		this.r = 10;
-   	this.show = true;
-		this.avance = avance;
+    this.show = true;
 	}
 
-	mover(){
-		this.y += this.avance;
+  mover(){
+		this.y +=5;
 	}
 
 	mostrar(){

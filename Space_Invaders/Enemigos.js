@@ -6,6 +6,7 @@ class Enemigos {
     this.r = 30;
     this.type = t;
     this.show = true;
+    this.cont = 1;
   }
 
   move(){
@@ -23,7 +24,7 @@ class Enemigos {
   }
 
   mostrar(){
-    if ( this.show )
+  if ( this.show )
       rect (this.x,this.y,this.r,this.r);
   }
 }
