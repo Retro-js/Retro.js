@@ -1,17 +1,19 @@
 var ship;
-var asteroids = []; 
+var asteroids = [];
 var lasers = [];
 var score = 0;
 var lives = 3;
 var shot;
 var hit;
 var gameover;
+var myfont;
 
 function preload() {
 
    shoot = loadSound('shoot.mp3');
    hit = loadSound('hit.mp3');
    gameover = loadSound('game-over.mp3');
+   myfont = loadFont('ca.ttf');
 }
 
 
@@ -28,11 +30,11 @@ function keyReleased() {
 }
 function keyPressed(){
 	console.log(key);
-	
+
 	if(key == 'D'){
 		ship.setRotation(0.1);
 		ship.loading(true);
-	
+
 	}
 	else if (key == 'A') {
 		ship.setRotation(-0.1);
@@ -60,22 +62,23 @@ function draw() {
 	background(0);
 	if (lives == 0) {
 	gameover.play();
+  textFont(myfont);
 	textSize(30);
 	text("GAME OVER", 150, 200);
 	textSize(25);
-	text("Puntaje: ", 150, 250);
-	text(score, 250, 250);
+	text("Puntaje:  ", 150, 250);
+	text(score, 300, 250);
 	textSize(18);
 	fill(255, 100, 0);
-	text("Presiona R para jugar de nuevo", 125, 350);
-	noLoop();	
+	text("Presiona R para jugar de nuevo", 50, 350);
+	noLoop();
 
 	}
-	else { 
+	else {
 	textSize(18);
 	text(score, 10, 30);
 
-	
+
 	fill(255, 0, 0);
 
 	for(i=0; i<lives; i++) {
@@ -83,16 +86,16 @@ function draw() {
 	translate(60+(i*20), 10);
 	scale(0.5);
 	beginShape();
-	vertex(50, 15); 
-	bezierVertex(50, -5, 90, 5, 50, 40); 
-	vertex(50, 15); 
-	bezierVertex(50, -5, 10, 5, 50, 40); 
+	vertex(50, 15);
+	bezierVertex(50, -5, 90, 5, 50, 40);
+	vertex(50, 15);
+	bezierVertex(50, -5, 10, 5, 50, 40);
 	endShape(CLOSE);
 	pop();
 	}
-	
 
-	
+
+
 
 
 	for (var i = 0; i < asteroids.length; i++) {
@@ -108,7 +111,7 @@ function draw() {
     asteroids[i].update();
     asteroids[i].edges();
   }
-	
+
 	for (var i = lasers.length-1; i >= 0; i--) {
     lasers[i].render();
     lasers[i].update();
@@ -123,7 +126,7 @@ function draw() {
 				}
 				score +=  asteroids[j].score;
 				asteroids.splice(j, 1);
-				
+
 				lasers.splice(i,1);
 				break;
 
@@ -142,7 +145,7 @@ function draw() {
     asteroids[i].render();
     asteroids[i].update();
     asteroids[i].edges();
-	}	
+	}
 
 }
 }
@@ -150,5 +153,8 @@ function draw() {
 function reset(){
  score = 0;
 lives = 3;
+for (var i = 0; i < 5; i++) {
+ asteroids.push(new Asteroid());
+}
 loop();
 }
