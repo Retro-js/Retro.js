@@ -7,6 +7,7 @@ class Ship {
 		this.rotation = 0;
 		this.vel = createVector(0,0);
 		this.isBoost = false;
+		this.isLoading = false;
 
 	}
 
@@ -18,6 +19,10 @@ class Ship {
 		this.vel.mult(0.925);
 	}
 
+	loading(l) {
+		this.isLoading = l;
+	}
+
 	boosting(b){
 		this.isBoost = b;
 	}
@@ -27,6 +32,17 @@ class Ship {
 		force.mult(0.5);
 		this.vel.add(force);
 
+	}
+
+	hit(asteroid){
+
+	    var d = dist(this.pos.x, this.pos.y, asteroid.pos.x, asteroid.pos.y);
+	    if (d < this.r + asteroid.r) {
+	      return true;
+	    } else {
+	      return false;
+	    }
+  
 	}
 
 	render (){

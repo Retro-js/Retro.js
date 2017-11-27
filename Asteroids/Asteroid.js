@@ -1,12 +1,23 @@
 class Asteroid {
-	constructor(){
+	constructor(p, ra){
+		if(p) {
+		this.pos = p.copy();
+		}
+		else {
 		this.pos = createVector(random(width), random(height));
-		this.r= random(15, 50);
+		}
+		if(ra) {
+		this.r = ra*0.5;
+		}
+		else {
+		this.r= random(15, 35);
+		}
 		this.vel = p5.Vector.random2D();
+		this.score = int(this.r * 10);
 		this.total = floor(random(5, 15));
 		this.offset = [];
 		for (var i = 0; i< this.total; i++) {
-			this.offset[i]= random(-15, 15);
+			this.offset[i]= random(-this.r, this.r);
 		}
 
 	}
@@ -17,11 +28,11 @@ class Asteroid {
 	}
 
 	render(){
+
 		push();
 		noFill();
 		stroke(255);
 		translate(this.pos.x, this.pos.y);
-		//ellipse(0, 0, this.r*2);
 		beginShape();
 		for(var i=0; i<this.total; i++){
 			var angle = map(i, 0, this.total, 0, TWO_PI);
@@ -45,6 +56,16 @@ class Asteroid {
 			this.pos.y = height + this.r;
 		}
 	}
+
+
+	split(){
+	var newA = [];
+	newA[0] = new Asteroid(this.pos, this.r);
+	newA[1] = new Asteroid(this.pos, this.r);
+	return newA;	
+	}
+	
+
 
 
 
