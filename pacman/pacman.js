@@ -22,7 +22,7 @@ function setup() {
   redGhost = new ghost(819, 367, 255, 0, 0, 0, true, false, false);
   yellowGhost = new ghost(819, 367, 255, 165, 0, 2, true, false, false);
   blueGhost = new ghost(819, 367, 0, 0, 255, 3, true, false, false);
-  pinkGhost = new ghost(819, 367, 255, 0, 255, 1, true, false, false);
+  pinkGhost = new ghost(819, 367, 255, 0, 255, 2, true, false, false);
   lives = 3;
   cookieI = new cookies(548, 202, true);
   cookieII = new cookies(1096, 202, true);
@@ -38,10 +38,22 @@ function setup() {
   cookieD = 0;
   counter = 0;
   collideCookie= false;
+  booleanGoal=false;
+  lifeI=0;
+  lifeII=0;
+  booleanGoalII = false;
 }
 
 function draw() {
+  if(booleanGoal){
+    if(lifeI==0){
+      lifeI = milliSeconds;
+    }
+    milliSeconds=millis()-lifeI;
+  }
+  else{
   milliSeconds = millis();
+}
   time = (minutes*60) + seconds;
   minutes = minute();
   seconds = second();
@@ -78,7 +90,7 @@ function draw() {
       startingAudio.play();
       counterInitial+=1;
     }
-    if(milliSeconds>5600){
+    if((milliSeconds>5600)&&(!booleanGoal)){
     if(counterTimeSound==0){
       counterTimeSound=milliSeconds;
        chomp.play();
@@ -87,28 +99,43 @@ function draw() {
       counterTimeSound=0;
     }
   }
+  if(booleanGoal){
+  if(counterTimeSound==0){
+    counterTimeSound=milliSeconds;
+     chomp.play();
+  }
+  if(milliSeconds-counterTimeSound>=580){
+    counterTimeSound=0;
+  }
+}
     console.log(milliSeconds);
 
   game();
+  if(milliSeconds<10000){
+    redGhost.goalX=548;
+    redGhost.goalY=202;
+    blueGhost.goalX=1096;
+    blueGhost.goalY=202;
+    yellowGhost.goalX=548;
+    yellowGhost.goalY=599;
+    pinkGhost.goalX=1096;
+    pinkGhost.goalY=599;
+  }
 }
 else{
   background(0);
   push();
   textSize(50);
   textFont(myFont);
-  text("GAME OVER", 700, 500);
+  text("GAME OVER", 675, 500);
   pop();
   push();
   fill(0);
   rect(685, 645, 250, 70);
-  if(mouseIsPressed){
-    again = collidePointRect(mouseX, mouseY, 685, 645, 250, 70);
-  }
   pop();
   push();
   fill(255, 255, 0);
   textFont(myFont);
-  text("TRY AGAIN", 700, 700);
   pop();
 
 }

@@ -25,13 +25,13 @@ class ghost{
     fill(255, 255, 255);
   }
   else{
-    fill(120, 120, 120);
+    fill(50, 50, 50);
    }
   }
     ellipse(this.x, this.y, 35, 35);
     pop();
   }
-  move(){
+  move(s){
     if(this.x >= 1133){
       this.x = 515;
     }
@@ -62,7 +62,7 @@ class ghost{
           }
         }
         else{
-          this.x = this.x - 4;
+          this.x = this.x - s;
         }
         break;
       }
@@ -90,7 +90,7 @@ class ghost{
             }
           }
           else{
-            this.y = this.y + 4;
+            this.y = this.y + s;
           }
 
       break;
@@ -121,7 +121,7 @@ class ghost{
 
           }
           else{
-            this.x = this.x + 4;
+            this.x = this.x + s;
           }
         break;
       }
@@ -150,7 +150,7 @@ class ghost{
 
           }
           else{
-            this.y = this.y - 4;
+            this.y = this.y - s;
           }
         break;
       }
