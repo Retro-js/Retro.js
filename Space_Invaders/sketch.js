@@ -27,19 +27,19 @@
     for(var i = 0; i < 10; i++){
       basicos[i] = [];
       for(var j = 0; j < 3; j++)
-        basicos[i][j] = new Enemigos(500-i*50,175+j*50,10);
+        basicos[i][j] = new Enemigos(500-i*50,200+j*50,10);
     }
 
     for(var i = 0; i < 10; i++){
       medios[i] = [];
       for(var j = 0; j < 2; j++)
-        medios[i][j] = new Enemigos(50+i*50,75+j*50,20);
+        medios[i][j] = new Enemigos(50+i*50,100+j*50,20);
     }
 
     for(var i = 0; i < 10; i++){
       dificiles[i] = [];
       for(var j = 0; j < 1; j++)
-        dificiles[i][j] = new Enemigos(500-i*50,25+j*50,30);
+        dificiles[i][j] = new Enemigos(500-i*50,50+j*50,30);
     }
 
     frameRate( 45 );
@@ -136,18 +136,34 @@
       }
     }
 
+    for (var i = 0; i < basicos.length; i++){
+      for (var j = 0; j < 3; j++){
+        if(basicos[i][j].choque(nave)){
+          console.log("exito");
+        }
+      }
+    }
+    for (var i = 0; i < medios.length; i++){
+      for (var j = 0; j < 2; j++){
+        medios[i][j].choque(nave);
+      }
+    }
+    for (var i = 0; i < dificiles.length; i++){
+      for (var j = 0; j < 1; j++){
+        dificiles[i][j].choque(nave);
+      }
+    }
+
+
     nave.mostrar();
     nave.move();
-
 
     for(var i = 0; i < balas.length; i++){
       if(balas[i].y <= 0 )
         balas.splice(i,1);
     }
 
-    for (var i = 0; i < balEnemigo.length; i++){
 
-    }
 
 
   }

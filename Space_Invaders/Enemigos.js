@@ -27,4 +27,13 @@ class Enemigos {
   if ( this.show )
       rect (this.x,this.y,this.r,this.r);
   }
+
+  choque( Personaje ){
+		if( collideRectCircle(this.x,this.y-50,this.r,this.r*2,Personaje.x,Personaje.y,Personaje.r) ){
+      this.borrar();
+      Personaje.borrar();
+			return true;
+		}
+		return false;
+	}
 }
