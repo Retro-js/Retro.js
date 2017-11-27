@@ -46,6 +46,7 @@ function keyPressed(){
 	}
 	else if(key == ' ' ){
 	lasers.push(new Laser(ship.pos, ship.angle));
+  shoot.setVolume(0.5);
 	shoot.play();
 
 
@@ -61,6 +62,7 @@ function draw() {
 	fill(255);
 	background(0);
 	if (lives == 0) {
+  gameover.setVolume(0.5);
 	gameover.play();
   textFont(myfont);
 	textSize(30);
@@ -101,6 +103,7 @@ function draw() {
 	for (var i = 0; i < asteroids.length; i++) {
 	if(ship.isLoading){
     if (ship.hit(asteroids[i])) {
+    hit.setVolume(0.5);
     hit.play();
       lives--;
       ship.loading(false);
@@ -153,8 +156,6 @@ function draw() {
 function reset(){
  score = 0;
 lives = 3;
-for (var i = 0; i < 5; i++) {
- asteroids.push(new Asteroid());
-}
+
 loop();
 }
