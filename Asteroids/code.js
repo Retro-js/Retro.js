@@ -3,6 +3,16 @@ var asteroids = [];
 var lasers = [];
 var score = 0;
 var lives = 3;
+var shot;
+var hit;
+var gameover;
+
+function preload() {
+
+   shoot = loadSound('shoot.mp3');
+   hit = loadSound('hit.mp3');
+   gameover = loadSound('game-over.mp3');
+}
 
 
 function setup() {
@@ -34,6 +44,7 @@ function keyPressed(){
 	}
 	else if(key == ' ' ){
 	lasers.push(new Laser(ship.pos, ship.angle));
+	shoot.play();
 
 
 	}
@@ -48,6 +59,7 @@ function draw() {
 	fill(255);
 	background(0);
 	if (lives == 0) {
+	gameover.play();
 	textSize(30);
 	text("GAME OVER", 150, 200);
 	textSize(25);
@@ -86,6 +98,7 @@ function draw() {
 	for (var i = 0; i < asteroids.length; i++) {
 	if(ship.isLoading){
     if (ship.hit(asteroids[i])) {
+    hit.play();
       lives--;
       ship.loading(false);
       break;
