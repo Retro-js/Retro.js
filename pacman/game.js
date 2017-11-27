@@ -39,6 +39,10 @@ var cookieC;
 var cookieD;
 var counterTimeSound;
 var milliSeconds;
+var booleanGoal;
+var booleanGoalII;
+var lifeI;
+var lifeII;
 function game(){
   push();
   textSize(32);
@@ -53,13 +57,13 @@ function game(){
   user.move(4);
   user.display();
   redGhost.display();
-  redGhost.move();
+  redGhost.move(4);
   blueGhost.display();
-  blueGhost.move();
+  blueGhost.move(4);
   yellowGhost.display();
-  yellowGhost.move();
+  yellowGhost.move(4);
   pinkGhost.display();
-  pinkGhost.move();
+  pinkGhost.move(4);
   cookieI.display();
   cookieII.display();
   cookieIII.display();
@@ -166,7 +170,6 @@ function game(){
     collideCookie = false;
     counter = 0;
   }
-  console.log(cookieA);
   colitionRedGhost = collideCircleCircle(user.x, user.y, 35, redGhost.x, redGhost.y, 35);
   if(collideCookie&&colitionRedGhost){
     redGhost.home = true;
@@ -189,6 +192,8 @@ function game(){
   if(colition){
     if(redGhost.state){
     deathAudio.play();
+    booleanGoal = true;
+    counterTimeSound = 0;
     lives -=1;
     user.x = 822;
     user.y = 630;
@@ -201,6 +206,9 @@ function game(){
     blueGhost.x = 819;
     blueGhost.y = 367;
     blueGhost.m = 2;
+    pinkGhost.x = 819;
+    pinkGhost.y = 367;
+    pinkGhost.m = 2;
     }
   }
   colition = false;
