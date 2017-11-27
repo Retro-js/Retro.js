@@ -1,9 +1,19 @@
 function preload() {
-  img = loadImage("Sources/fondo.jpg");
-  start = loadImage("Sources/start.jpg")
-  myFont = loadFont('Sources/PAC-FONT.TTF');
+  img = loadImage("Sources/Images/fondo.jpg");
+  start = loadImage("Sources/Images/start.jpg")
+  myFont = loadFont('Sources/Font/PAC-FONT.TTF');
+  soundFormats('mp3');
+  startingAudio = loadSound('Sources/Audios/pacman_beginning.mp3');
+  chomp = loadSound('Sources/Audios/pacman_chomp.mp3');
+  deathAudio = loadSound('Sources/Audios/pacman_death.mp3');
+  startingAudio.setVolume(0.1);
+  chomp.setVolume(0.1);
+  deathAudio.setVolume(0.1);
+
 }
 function setup() {
+  counterTimeSound=0
+  counterInitial=0;
   createCanvas(1400, 1000);
   noStroke();
   startBool = false;
@@ -31,6 +41,10 @@ function setup() {
 }
 
 function draw() {
+  milliSeconds = millis();
+  time = (minutes*60) + seconds;
+  minutes = minute();
+  seconds = second();
   if(!startBool||again){
     push();
     translate(500, 100);
@@ -59,6 +73,22 @@ function draw() {
   }
   else{
   if(lives!=0){
+
+    if(counterInitial==0){
+      startingAudio.play();
+      counterInitial+=1;
+    }
+    if(milliSeconds>5600){
+    if(counterTimeSound==0){
+      counterTimeSound=milliSeconds;
+       chomp.play();
+    }
+    if(milliSeconds-counterTimeSound>=580){
+      counterTimeSound=0;
+    }
+  }
+    console.log(milliSeconds);
+
   game();
 }
 else{
