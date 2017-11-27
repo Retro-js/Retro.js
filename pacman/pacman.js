@@ -1,7 +1,7 @@
 function preload() {
-  img = loadImage("fondo.jpg");
-  start = loadImage("start.jpg")
-  myFont = loadFont('PAC-FONT.TTF');
+  img = loadImage("Sources/fondo.jpg");
+  start = loadImage("Sources/start.jpg")
+  myFont = loadFont('Sources/PAC-FONT.TTF');
 }
 function setup() {
   createCanvas(1400, 1000);
